@@ -1,0 +1,8 @@
+*
+**/*
+*.exe
+
+# Whitelist files with extensions and source code
+!*.*
+!**/*.*
+  
