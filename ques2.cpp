@@ -6,7 +6,7 @@ void show(int x, int y)
     cout << "x: " << x << ", y: " << y << endl;
 }
 
-// Call by Value
+// Call by Va lue
 void swapByVal(int x, int y)
 {
     int z = x;
@@ -38,7 +38,7 @@ int main()
     show(x, y);
 
     swapByVal(x, y);
-
+ 
     cout << "After swapByVal: ";
     show(x, y);
 
