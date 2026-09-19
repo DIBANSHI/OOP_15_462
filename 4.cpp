@@ -1,88 +1,38 @@
-#include <iostream>
-#include <string>
-#include <stdexcept>
-#include <iomanip>
+#include<iostream>
 using namespace std;
 
-class BankAccount
-{
-private:
-    string accountNumber;
-    string accountHolder;
-    double balance;
-
+class point{
+    private:
+int x;
+int y;
 public:
-    // Constructor
-    BankAccount(string accNum, string holder, double initialBalance = 0.0)
-    {
-        accountNumber = accNum;
-        accountHolder = holder;
-
-        if (initialBalance < 0)
-        {
-            throw invalid_argument("Initial balance cannot be negative.");
-        }
-
-        balance = initialBalance;
-    }
-
-    // Deposit function
-    void deposit(double amount)
-    {
-        if (amount <= 0)
-        {
-            throw invalid_argument("Deposit amount must be positive.");
-        }
-
-        balance += amount;
-    }
-
-    // Withdraw function
-    void withdraw(double amount)
-    {
-        if (amount <= 0)
-        {
-            throw invalid_argument("Withdrawal amount must be positive.");
-        }
-
-        if (amount > balance)
-        {
-            throw runtime_error("Insufficient balance.");
-        }
-
-        balance -= amount;
-    }
-
-    // Display account details
-    void show()
-    {
-        cout << "Account Number : " << accountNumber << endl;
-        cout << "Account Holder : " << accountHolder << endl;
-        cout << "Balance        : " << fixed << setprecision(2) << balance << endl;
-    }
+ point():x{0},y{0}{
+    cout<<"Default Constructor"<<endl;
+ }
+point(int p,int q):x{p},y{q}{
+    cout<<"Parametrized constructor"<<endl;
+}
+ point add(point q){
+//     point r;
+//     r.x=x+q.x;
+//     r.y=y+q.y;
+//     return r;
+return point(x+q.x,y+q.y);
+  }
+  point add(){
+    
+  }
+ void show(){
+cout<<"x: "<<x<<" y: "<<y<<endl;
+ }
 };
-
 int main()
 {
-    try
-    {
-        BankAccount acc("123456", "Dibanshi", 1000);
-
-        cout << "Initial Details:\n";
-        acc.show();
-
-        acc.deposit(500);
-        cout << "\nAfter Deposit:\n";
-        acc.show();
-
-        acc.withdraw(300);
-        cout << "\nAfter Withdrawal:\n";
-        acc.show();
-    }
-    catch (exception &e)
-    {
-        cout << "Error: " << e.what() << endl;
-    }
-
+    point p(50,90),q(20,30); 
+    p.show();
+    q.show();
+    point r=p.add(q);
+    r.show();
     return 0;
+    
 }
